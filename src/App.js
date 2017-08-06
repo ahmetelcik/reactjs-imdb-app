@@ -118,6 +118,7 @@ class App extends Component {
         }
         </div>
       }
+      <a className="get-source" href="https://github.com/bunyaminakin/reactjs-imdb-app">View Code</a>
       </div>
     );
   }
