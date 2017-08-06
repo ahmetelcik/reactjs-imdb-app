@@ -1,3 +1,239 @@
-.App {
-  text-align: center;
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  font-family: Open Sans;
+  color: #FFF;
+  position: relative;
+  z-index: 2;
+}
+.page:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("http://unsplash.it/1200x600");
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.film-detail {
+  animation-name: down;
+  animation-duration: 2.5s;
+  padding: 0 30px;
+  padding-top: 100px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 20px;
+  z-index: 9;
+}
+.film-detail:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.search-film {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+}
+.search-film ::-webkit-input-placeholder {
+  /* Chrome */
+  color: #FFF;
+}
+.search-film .search-film-name {
+  vertical-align: super;
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom-color: yellow;
+  color: #FFF;
+  outline: none;
+  width: 220px;
+  padding: 10px 30px 5px 0;
+}
+.search-film .search-film-button {
+  cursor: pointer;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  width: 20px;
+  height: 20px;
+  right: 0;
+  top: 5px;
+  padding: 0;
+}
+.search-film .search-film-button .fa-search {
+  font-size: 15px;
+  color: #FFF;
+}
+
+.film-detail-header {
+  padding: 15px 0;
+  position: relative;
+}
+.film-detail-header .film-detail-title {
+  line-height: 1;
+  font-weight: 700;
+  display: inline-block;
+  font-size: 62px;
+  padding: 0;
+  margin: 0;
+}
+.film-detail-header .film-detail-year {
+  font-weight: 600;
+  color: #CCC;
+  font-size: 18px;
+}
+.film-detail-header .film-detail-list {
+  color: #CCC;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+.film-detail-header .film-detail-list .film-detail-item {
+  font-weight: 300;
+  display: inline-block;
+  padding: 0;
+  padding-bottom: 0;
+}
+.film-detail-item-list{
+  list-style: none;
+  margin: 0;
+  padding:0;
+}
+.film-detail-list-item{
+  display: inline-block;
+  padding-left: 5px;
+}
+.film-detail-list-item:after{
+  content: ',';
+}
+.film-detail-list-item:last-child:after{
+  content: '';
+}
+.film-detail-header .film-detail-list .film-detail-item .fa-clock-o {
+  display: inline-block;
+  font-size: 16px;
+  padding-left: 8px;
+}
+.film-detail-header .film-detail-list .film-detail-item:first-child {
+  padding-left: 0;
+}
+.film-detail-header .film-detail-list .film-detail-item:first-child:before {
+  content: "";
+}
+.film-detail-header .film-detail-list .film-detail-item:before {
+  content: "• ";
+  color: yellow;
+  position: absolute;
+}
+.film-detail-header .film-detail-overview {
+  padding-top: 5px;
+  margin: 0;
+}
+.film-detail-header .film-detail-vote {
+  position: absolute;
+  right: 0;
+  top: 20%;
+  transform: translateY(-20%);
+}
+.film-detail-header .film-detail-vote .fa {
+  font-size: 28px;
+  color: yellow;
+}
+.film-detail-header .film-detail-vote .film-detail-vote-average {
+  vertical-align: sub;
+  font-size: 42px;
+  font-weight: 600;
+}
+.film-detail-header .film-detail-vote .film-detail-vote-count {
+  display: block;
+  text-align: right;
+  font-size: 18px;
+  color: #CCC;
+}
+
+.film-stars {
+  padding: 15px 0;
+}
+.film-stars .film-stars-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.film-stars .film-stars-list .film-stars-item {
+  display: inline-block;
+}
+.film-stars .film-stars-list .film-stars-item .film-stars-image {
+  border-radius: 100%;
+  width: 75px;
+  height: 75px;
+  vertical-align: middle;
+  padding: 5px;
+  object-fit: cover;
+}
+.film-stars .film-stars-list .film-stars-item .film-star-name {
+  display: inline-block;
+  vertical-align: middle;
+  width: 88px;
+}
+.film-stars .film-stars-list .film-stars-item .film-star-first-name, .film-stars .film-stars-list .film-stars-item .film-star-last-name {
+  display: block;
+}
+
+.film-maker {
+  line-height: 0px;
+  padding: 10px 0;
+}
+.film-maker .film-maker-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.film-maker .film-maker-list .film-maker-list-item {
+  display: inline-block;
+  padding: 0 15px 15px 10px;
+}
+.film-maker .film-maker-director-header, .film-maker .film-maker-writer-header {
+  color: yellow;
+}
+.film-maker-writer-name{
+  display: inline-block;
+}
+.film-maker-writer-name:after{
+  content: ",";
+}
+.film-maker-writer-name:last-child:after{
+  content: '';
+}
+.film-maker-writers{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@keyframes down {
+  from {
+    padding-top: 0px;
+  }
+  to {
+    padding-top: 100px;
+  }
 }
