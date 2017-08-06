@@ -1,2 +1,2 @@
-## reactjs-imdb-app
-# use the open movie database
+# reactjs-imdb-app
+## use tmdb api
