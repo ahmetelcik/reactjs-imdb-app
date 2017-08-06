@@ -25,11 +25,59 @@ class App extends Component {
       .set("Accept", "application/json")
       .then((data) => {
         this.setState({
-          film:data.body.results
+          film:data.body.results,
+          id:data.body.results[0].id
+        },()=>{
+          this.getFilmDetails(this.state.id);
+            this.getFilmCredits(this.state.id);
         });
       },(err) => {
         console.log(err.message);
       });
+  };
+
+  getFilmCredits = (id) => {
+    const url = "https://api.themoviedb.org/3/movie/" + id + "/credits";
+
+    const params = {
+      api_key: "f681d442d64e8d1a866ef54693c4e2b0",
+    };
+
+    superagent
+      .get(url)
+      .query(params)
+      .set("Accept", "application/json")
+      .then((data) => {
+        this.setState({
+          filmCredits: data.body
+        });
+        console.log("Film Credit çalışıyp");
+      }, (err) => {
+        console.log(err.message);
+      });
+
+  };
+
+  getFilmDetails = (id) => {
+    const url = "https://api.themoviedb.org/3/movie/" + id;
+
+    const params = {
+      api_key: "f681d442d64e8d1a866ef54693c4e2b0",
+    };
+
+    superagent
+      .get(url)
+      .query(params)
+      .set("Accept", "application/json")
+      .then((data) => {
+        this.setState({
+          filmDetail: data.body
+        });
+        console.log("Film detail çalılıyo");
+      }, (err) => {
+        console.log(err.message);
+      });
+
   };
 
   handleChange = (e) => {
@@ -40,8 +88,15 @@ class App extends Component {
 
   handleSend = (e) => {
     e.preventDefault();
-    this.getFilm();
+    {
+      this.getFilm();
+    }
   };
+
+  componentDidMount(){
+    this.getFilm();
+  }
+
 
   render() {
     const films = this.state.film;
@@ -56,14 +111,11 @@ class App extends Component {
               <i className="fa fa-search" aria-hidden="true"></i>
             </button>
           </form>
-
-          {
-            films.length !== 0 ? (
-              console.log("Yeni id:" + this.state.film[0].id),
-                <Film id={this.state.film[0].id}/>
-              )
-              : ""
-          }
+        {
+          this.state.id !== undefined  ? (
+              <Film id={this.state.film[0].id} filmDetail={this.state.filmDetail} filmCredits={this.state.filmCredits} />
+          ) : ""
+        }
         </div>
       }
       </div>

@@ -152,9 +152,20 @@ body {
 .film-detail-header .film-detail-vote {
   position: absolute;
   right: 0;
-  top: 20%;
   transform: translateY(-20%);
 }
+
+@media screen and (max-width: 480px) {
+  .film-detail-vote{
+    bottom:100%;
+  }
+}
+@media screen and (min-width: 480px) {
+  .film-detail-vote{
+    top: 20%;
+  }
+}
+
 .film-detail-header .film-detail-vote .fa {
   font-size: 28px;
   color: yellow;
@@ -200,7 +211,7 @@ body {
 }
 
 .film-maker {
-  line-height: 0px;
+  line-height: 14px;
   padding: 10px 0;
 }
 .film-maker .film-maker-list {
@@ -228,6 +239,8 @@ body {
   margin: 0;
   padding: 0;
   list-style: none;
+  line-height: 14px;
+
 }
 @keyframes down {
   from {
