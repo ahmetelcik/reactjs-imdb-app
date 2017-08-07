@@ -51,7 +51,6 @@ class App extends Component {
         this.setState({
           filmCredits: data.body
         });
-        console.log("Film Credit çalışıyp");
       }, (err) => {
         console.log(err.message);
       });
@@ -73,7 +72,6 @@ class App extends Component {
         this.setState({
           filmDetail: data.body
         });
-        console.log("Film detail çalılıyo");
       }, (err) => {
         console.log(err.message);
       });
@@ -103,7 +101,6 @@ class App extends Component {
     return (
       <div>
       {
-        console.log(this.state.query),
         <div className="page">
           <form className="search-film" onSubmit={this.handleSend}>
             <input onChange={this.handleChange} className="search-film-name" type="text" placeholder="Movies, TV shows, Celebrities and more" />

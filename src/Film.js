@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import superagent from 'superagent';
 
 class Film extends Component {
   constructor(props) {
@@ -154,7 +153,7 @@ class Film extends Component {
                     this.props.filmCredits.crew.map((cv,i) => {
                       if(this.props.filmCredits.crew[i].job === "Director") {
                         return(
-                          <span>{this.props.filmCredits.crew[i].name}</span>
+                          <span key={this.props.filmCredits.crew[i].id}>{this.props.filmCredits.crew[i].name}</span>
                         )
                       }
                     })
